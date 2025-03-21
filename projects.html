@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Tirth Patel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="sticky-header">
+        <h1><a href="index.html">Tirth Patel</a></h1>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="experience.html">Experience</a>
+            <a href="projects.html">Projects</a>
+            <a href="extras.html">Extras</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <button id="theme-toggle">🌙</button>
+    </header>
+    <section id="projects">
+        <h2>Completed Projects</h2>
+        <div class="project">
+            <h3>Int’l High Tech Championship: Neural Network and Big Data</h3>
+            <p>Sep 2023 | PyTorch, DALL·E 2, Imagen</p>
+            <ul>
+                <li>Built a neural network using DALL·E 2 and Imagen to generate captioned image datasets, leveraging MS-COCO, ImageNet, and CC12M.</li>
+                <li>Optimized code for efficiency on resource-limited platforms (e.g., Colab, Jupyter Notebook), reducing processing time by 25%.</li>
+                <li>Integrated GigaChat and Kandinsky 2.2 APIs to create image prompts and generate visuals from key phrases.</li>
+                <li>Added user-friendly features, including offline mode and content filters, enhancing accessibility and safety.</li>
+            </ul>
+            <a href="https://github.com/tirthvp2/neural-network-project" target="_blank">View on GitHub</a>
+            <h4>Code Snippet</h4>
+            <pre class="code-snippet">import torch
+import torch.nn as nn
+
+class SimpleNN(nn.Module):
+    def __init__(self):
+        super(SimpleNN, self).__init__()
+        self.fc1 = nn.Linear(784, 128)
+        self.relu = nn.ReLU()
+        self.fc2 = nn.Linear(128, 10)
+    
+    def forward(self, x):
+        x = self.fc1(x)
+        x = self.relu(x)
+        x = self.fc2(x)
+        return x
+
+model = SimpleNN()
+print(model)</pre>
+        </div>
+        <div class="project">
+            <h3>Noise Profiles in the Vicinity of Wind Turbines</h3>
+            <p>Spring 2020 | Python, Jupyter Notebook, Arduino</p>
+            <ul>
+                <li>Engineered a PCB device with sensors for noise, wind speed, pressure, and temperature measurements.</li>
+                <li>Developed DAQ and analysis code in Python, producing clear, actionable data visualizations.</li>
+                <li>Created a miniature prototype to validate data and troubleshoot errors, improving experimental accuracy by 10%.</li>
+            </ul>
+            <a href="https://github.com/tirthvp2/wind-turbine-noise" target="_blank">View on GitHub</a>
+            <h4>Code Snippet</h4>
+            <pre class="code-snippet">import serial
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Read data from Arduino
+ser = serial.Serial('COM3', 9600)
+data = []
+for _ in range(100):
+    line = ser.readline().decode('utf-8').strip()
+    data.append(float(line))
+
+# Analyze and plot
+df = pd.DataFrame(data, columns=['Noise Level'])
+df.plot()
+plt.title('Noise Levels Near Wind Turbine')
+plt.xlabel('Sample')
+plt.ylabel('Noise (dB)')
+plt.show()</pre>
+        </div>
+        <div class="project">
+            <h3>Muon Detection</h3>
+            <p>Fall 2018 – Summer 2019 | C/C++, Cosmic Ray e-Lab Database</p>
+            <ul>
+                <li>Collected muon data using a Fermilab-provided detector, contributing to the Cosmic Ray e-Lab database for collaborative research.</li>
+                <li>Analyzed datasets to distinguish true signals from false positives, enhancing the accuracy of cosmic ray detection methods.</li>
+                <li>Evaluated collaborator data to deepen understanding of experimental methodologies, supporting broader scientific inquiry.</li>
+            </ul>
+            <h4>Code Snippet</h4>
+            <pre class="code-snippet">#include <iostream>
+#include <vector>
+
+std::vector<double> filterMuons(std::vector<double>& data) {
+    std::vector<double> filtered;
+    for (double value : data) {
+        if (value > 1000) { // Threshold for muon detection
+            filtered.push_back(value);
+        }
+    }
+    return filtered;
+}
+
+int main() {
+    std::vector<double> data = {500, 1200, 800, 1500};
+    auto muons = filterMuons(data);
+    for (double muon : muons) {
+        std::cout << "Detected Muon: " << muon << std::endl;
+    }
+    return 0;
+}</pre>
+        </div>
+        <div class="project">
+            <h3>Deterministic Transfer Station</h3>
+            <p>Summer 2021 – Fall 2022 | Fusion 360, AutoCAD</p>
+            <ul>
+                <li>Engineered a deterministic transfer station to precisely transfer 2D materials (e.g., graphene onto hexagonal boron nitride), advancing material synthesis techniques.</li>
+                <li>Designed and 3D-printed components, including X-Y manipulators, glass slide holders, and substrate holders, using Fusion 360 and AutoCAD.</li>
+                <li>Assembled an electronic control box integrating PID controllers, vacuum pumps, heating elements, and power sources, ensuring operational precision.</li>
+            </ul>
+            <h4>Code Snippet</h4>
+            <pre class="code-snippet">#include <Arduino.h>
+
+const int motorPin = 9;
+void setup() {
+    pinMode(motorPin, OUTPUT);
+    Serial.begin(9600);
+}
+
+void loop() {
+    // Control motor for X-Y manipulator
+    analogWrite(motorPin, 128); // 50% speed
+    delay(1000);
+    analogWrite(motorPin, 0); // Stop
+    delay(1000);
+    Serial.println("Motor cycle complete");
+}</pre>
+        </div>
+        <div class="project">
+            <h3>Battle of Wits</h3>
+            <p>Spring 2020 | Java, JSON, Android Studio</p>
+            <ul>
+                <li>Developed an Android trivia app using Android Studio, featuring a user-friendly interface built with diverse libraries and UI components.</li>
+                <li>Integrated web APIs to source and process trivia data, utilizing JSON and GSON for efficient communication and data parsing.</li>
+                <li>Designed and tested app functionality, ensuring seamless performance across various Android devices.</li>
+            </ul>
+            <a href="https://github.com/tirthvp2/battle-of-wits" target="_blank">View on GitHub</a>
+            <h4>Code Snippet</h4>
+            <pre class="code-snippet">import com.google.gson.Gson;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Scanner;
+
+public class TriviaApi {
+    public static String fetchTrivia() {
+        try {
+            URL url = new URL("https://api.trivia.com/questions");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            Scanner scanner = new Scanner(conn.getInputStream());
+            StringBuilder response = new StringBuilder();
+            while (scanner.hasNext()) {
+                response.append(scanner.nextLine());
+            }
+            scanner.close();
+            return response.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static void main(String[] args) {
+        String json = fetchTrivia();
+        Gson gson = new Gson();
+        TriviaQuestion[] questions = gson.fromJson(json, TriviaQuestion[].class);
+        System.out.println(questions[0].getQuestion());
+    }
+}</pre>
+        </div>
+        <h2>Current Projects</h2>
+        <div class="project">
+            <h3>Real-Time Stock Price Dashboard</h3>
+            <p>Ongoing | Python, Flask, React, WebSocket</p>
+            <p>Building a web app to display real-time stock prices using WebSocket for live updates, with interactive charts and predictive analytics.</p>
+        </div>
+        <div class="project">
+            <h3>AI-Powered Chess Analysis Tool</h3>
+            <p>Ongoing | Python, Stockfish, TensorFlow</p>
+            <p>Developing a tool to analyze chess games, provide move suggestions, and predict outcomes using machine learning and the Stockfish engine.</p>
+        </div>
+        <div class="project">
+            <h3>Smart Home IoT System</h3>
+            <p>Ongoing | Arduino, Raspberry Pi, MQTT</p>
+            <p>Creating a smart home system to control lights, temperature, and security sensors, with a web interface for remote monitoring.</p>
+        </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+</html>

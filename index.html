@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tirth Patel - Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="sticky-header">
+        <h1><a href="index.html">Tirth Patel</a></h1>
+        <nav>
+            <a href="about.html">About</a>
+            <a href="experience.html">Experience</a>
+            <a href="projects.html">Projects</a>
+            <a href="extras.html">Extras</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <button id="theme-toggle">🌙</button>
+    </header>
+    <div class="container">
+        <section id="hero">
+            <h2>Welcome to My Portfolio</h2>
+            <p>I’m a Data Analyst with a passion for machine learning, data visualization, and innovative problem-solving.</p>
+            <a href="Tirth_Patel_Resume.pdf" download class="resume-btn">Download My Resume</a>
+        </section>
+        <section id="skills-showcase">
+            <h2>Skills Showcase</h2>
+            <div class="showcase-item">
+                <h3>Interactive Data Visualization</h3>
+                <p>Explore a live chart built with Chart.js, showcasing my data visualization skills.</p>
+                <canvas id="dataChart"></canvas>
+            </div>
+            <div class="showcase-item">
+                <h3>3D Model Viewer</h3>
+                <p>A 3D model of Neil Armstrong's Spacesuit, designed in Fusion 360, viewable with Three.js.</p>
+                <div id="modelViewer"></div>
+            </div>
+            <div class="showcase-item">
+                <h3>Python Code Demo</h3>
+                <p>A live Python script (via Pyodide) generating a Sierpinski Triangle fractal pattern.</p>
+                <pre id="pythonCodeSnippet" class="code-snippet">def sierpinski(n):
+    if n == 0:
+        return ['*']
+    smaller = sierpinski(n - 1)
+    width = len(smaller[0])
+    space = ' ' * (width // 2)
+    result = []
+    for line in smaller:
+        result.append(space + line + space)
+    for line in smaller:
+        result.append(line + ' ' + line)
+    return result
+
+# Generate Sierpinski Triangle with depth 3
+triangle = sierpinski(3)
+'\n'.join(triangle)</pre>
+                <button onclick="runPythonDemo()">Run Python Demo</button>
+                <pre id="pythonOutput"></pre>
+            </div>
+        </section>
+    </div>
+    <script src="lib/chart.min.js"></script>
+    <script src="lib/three.min.js"></script>
+    <script src="lib/OrbitControls.js"></script>
+    <script src="lib/GLTFLoader.js"></script>
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.23.4/full/pyodide.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
